@@ -1,19 +1,22 @@
 package sort
 
-import "cmp"
+import (
+	"cmp"
+)
 
 func InsertionSort[T cmp.Ordered](arr []T) []T {
 	for i := 1; i < len(arr); i++ {
 		index := i
-		for j := i; j > 0; j-- {
-			if arr[j] >= arr[j-1] {
+		num := arr[i]
+		for j := i - 1; j >= 0; j-- {
+			if arr[j] < num {
 				break
 			}
-			arr[j] = arr[j-1]
-			index = j - 1
+			arr[j+1] = arr[j]
+			index = j
 		}
 		if index != i {
-			arr[index] = arr[i]
+			arr[index] = num
 		}
 	}
 	return arr
