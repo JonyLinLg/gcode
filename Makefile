@@ -1,2 +1,2 @@
 bench:
-	cd sort && go test -bench=. -benchmem -benchtime=5s
+	cd sort && go test -bench=. -benchmem -benchtime=5s -run=^Benchmark
